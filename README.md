@@ -8,13 +8,13 @@ https://help.github.com/articles/changing-a-remote-s-url/
 
 ####Folders
 
-######translation
+####translation
 
 
 
 - In this folder will be include language motation 
 ####External libralies
-#####tracy
+####tracy
 
 
 - nette debugging tool writen bz David Grundl 
