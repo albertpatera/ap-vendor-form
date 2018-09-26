@@ -35,12 +35,23 @@ class Forms
 
 
 
-
+	function initForm() {
+		$form = new Forms();
+		return $form;
+	}
 
 	public function initHTML()
 	{
 		$html = new getHTML('p', 'paragraph');
 
+
+	}
+
+	public function generateTestForm() {
+		$this->initForm();
+		$this->addText('text', 'form-control')
+			->addSubmit('submit', 'Submit form')
+			->addFieldset();
 
 	}
     public function generateForm() {
@@ -56,7 +67,10 @@ class Forms
             ->addLabel('Zasilat novinky e-mailem ? ')
             ->addLabel('Zasilat novinky e-mailem ? ')
             ->addChecbox('chckbox', 'newsletter', 'Add m to newsletter database')
-            ->addSubmit("submit", "share &amp; register");
+            ->addSubmit("submit", "share &amp; register")
+	        ->addFieldset();
+
+	    $this->generateTestForm();
 
 
 	}
@@ -101,6 +115,16 @@ class Forms
 	    return $this;
     }
 
+	public function getLegendF($string) {
+		echo '<legend>' . $string  .'</legend>';
+	}
+
+    public function addFieldset() {
+		echo '<fieldset>'
+		$this->getLegendF('Form title');
+		echo '</fieldset>';
+    }
+
 	public function addGroup($class, $legend) 
 	{
 		$html = new getHTML('p', 'paragraph');
@@ -113,6 +137,8 @@ class Forms
 			Forms::addSubmit($this->type, $this->class, $this->name, $this->label);
 		echo "</fieldset>";
 		$html->getEnd('p');
+
+
 	}
 		
 }
